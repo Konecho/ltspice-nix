@@ -18,7 +18,7 @@
       wrapWine = ((import ./wrapWine.nix) {inherit pkgs;}).wrapWine;
       installer = builtins.fetchurl {
         url = "https://ltspice.analog.com/software/LTspice64.msi";
-        sha256 = "sha256:0dhs8aiwmr1bi9yq065ppxh0gclim8dmadqawanycf07cc5z5ab2";
+        sha256 = "sha256:0zwq3s505pn11f8djsi8yb0kf1vswqx99r5lk5yxy377dy8zg4xg";
       };
       wine = pkgs.wineWowPackages.stagingFull;
       ltspice_bin = wrapWine {
