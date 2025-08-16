@@ -17,18 +17,18 @@
       };
       wrapWine = ((import ./wrapWine.nix) {inherit pkgs;}).wrapWine;
       installer = builtins.fetchurl {
-        url = "https://ltspice.analog.com/software/LTspice64.msi";
-        sha256 = "sha256:0zwq3s505pn11f8djsi8yb0kf1vswqx99r5lk5yxy377dy8zg4xg";
+        url = "https://ltspice.analog.com/software/LTspice64.exe";
+        sha256 = "sha256:0lvvk6qc0bwjdbk7bgk1lmxdcnk7pyqlsrgkjnflqxcyk2cdy1jk";
       };
       wine = pkgs.wineWowPackages.stagingFull;
       ltspice_bin = wrapWine {
         wine = wine;
         name = "LTspice";
         is64bits = true;
-        executable = "$WINEPREFIX/drive_c/Program Files/ADI/LTSpice/LTSpice.exe";
+        executable = "$WINEPREFIX/drive_c/Program Files/LTC/LTspiceXVII/XVIIx64.exe";
         firstrunScript = ''
           pushd "$WINEPREFIX/drive_c"
-            ${wine}/bin/wine msiexec /q /i ${installer}
+            ${wine}/bin/wine ${installer}
           popd
         '';
       };

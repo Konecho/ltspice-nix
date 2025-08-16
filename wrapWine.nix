@@ -23,7 +23,7 @@ with pkgs; {
     }: let
       wineBin = "${wine}/bin/wine${
         if is64bits
-        then "64"
+        then ""
         else ""
       }";
       requiredPackages = [
